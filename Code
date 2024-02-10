@@ -1,0 +1,56 @@
+int motor1=7;
+int motor1d=3;
+int motor2=4;
+int motor2d=5;
+int motor1S=9;
+int motor2S=10;
+String x;
+
+void setup() {  
+  pinMode(motor1,OUTPUT);
+  pinMode(motor1d,OUTPUT);
+  pinMode(motor2,OUTPUT);
+  pinMode(motor2d,OUTPUT);
+   Serial.begin(9600);
+}
+
+
+  
+void loop() {
+  if(Serial.available()){
+    x= Serial.readString();
+    }
+    
+  if(x=="go"){
+  digitalWrite(motor1,1);
+  digitalWrite(motor1d,0);
+  digitalWrite(motor2,1);
+  digitalWrite(motor2d,0);
+  }
+  
+  if(x=="back"){
+    digitalWrite(motor1,0);
+    digitalWrite(motor1d,1);
+    digitalWrite(motor2,0);
+    digitalWrite(motor2d,1);
+      }
+  if(x=="right"){
+    digitalWrite(motor1,0);
+    digitalWrite(motor1d,0);
+    digitalWrite(motor2,1);
+    digitalWrite(motor2d,0);
+  }
+   if(x=="lift"){
+    digitalWrite(motor1,1);
+    digitalWrite(motor1d,0);
+    digitalWrite(motor2,0);
+    digitalWrite(motor2d,0);
+  }
+   if(x=="stop"){
+    digitalWrite(motor1,0);
+    digitalWrite(motor1d,0);
+    digitalWrite(motor2,0);
+    digitalWrite(motor2d,0);
+   }
+
+}
